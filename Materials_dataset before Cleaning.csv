@@ -1,0 +1,40 @@
+material_id,material_name,material_type,strength,weight_capacity,biodegradability_score,co2_emission_score,recyclability_pct,unit_cost
+1,Bamboo Fiber,Natural Fiber,55,30,85,25,90,0.647058824
+2,Recycled Plastic,Synthetic Polymer,80,50,60,40,95,1.333333333
+3,Biodegradable PLA,Bioplastic,65,40,90,15,85,0.722222222
+4,Coconut Coir,Natural Fiber,45,20,95,10,70,0.473684211
+5,Hemp Fiber,Natural Fiber,70,35,88,30,92,0.795454545
+6,Recycled Aluminum,Metal,90,80,20,50,98,4.5
+7,Organic Cotton,Natural Fiber,40,25,99,5,75,0.404040404
+8,Sugarcane Bagasse,Agri-waste Fiber,50,22,93,18,78,0.537634409
+9,Jute Fiber,Natural Fiber,60,28,97,12,82,0.618556701
+10,Mycelium Foam,Bio-Composite,35,15,100,8,65,0.35
+11,Corn Starch Polymer,Bioplastic,55,33,89,20,80,0.617977528
+12,Recycled Glass,Glass,95,90,10,45,99,9.5
+13,Kenaf Fiber,Natural Fiber,52,26,96,14,77,0.541666667
+14,Natural Rubber,Plant-based Polymer,68,38,87,22,83,0.781609195
+15,Paper Pulp,Processed Natural Material,30,12,98,6,60,0.306122449
+16,Rice Husk Composite,Agri-waste Composite,48,27,92,16,76,0.52173913
+17,Fish Leather,Bio-Leather,58,25,85,30,70,0.682352941
+18,Banana Fiber,Natural Fiber,50,24,94,14,79,0.531914894
+19,Coffee Ground Polymer,Bio-Composite,62,34,88,21,81,0.704545455
+20,Palm Fiber,Natural Fiber,45,20,93,12,72,0.483870968
+21,Recycled Steel,Metal,98,95,8,55,99,12.25
+22,Cassava Bioplastic,Bioplastic,57,29,91,18,83,0.626373626
+23,Orange Peel Polymer,Bio-Composite,52,22,95,11,74,0.547368421
+24,Recycled Cardboard,Processed Natural Material,38,18,97,9,85,0.391752577
+25,Wheat Straw Fiber,Agri-waste Fiber,46,21,96,13,73,0.479166667
+26,Pine Resin Polymer,Plant-based Polymer,63,36,90,23,80,0.7
+27,Stone Paper,Mineral Composite,75,60,20,40,98,3.75
+28,Recycled Rubber,Synthetic Polymer,82,55,50,42,93,1.64
+29,Mulberry Fiber,Natural Fiber,44,23,98,10,78,0.448979592
+30,Cork Material,Plant-based Material,58,19,99,5,88,0.585858586
+31,Recycled Copper,Metal,97,88,12,52,99,8.083333333
+32,Leaf Leather,Bio-Leather,41,16,100,8,67,0.41
+33,Soybean Foam,Bio-Composite,64,37,89,24,82,0.719101124
+34,Water Hyacinth Fiber,Natural Fiber,47,21,96,14,71,0.489583333
+35,Recycled Textile Fiber,Processed Natural Material,53,28,87,22,90,0.609195402
+36,Mango Seed Polymer,Bioplastic,59,31,92,19,79,0.641304348
+37,Flax Fiber,Natural Fiber,63,33,95,12,88,0.663157895
+38,Seagrass Fiber,Natural Fiber,42,18,99,9,74,0.424242424
+39,Terracotta Composite,Mineral Composite,85,70,18,48,96,4.722222222
