@@ -1,0 +1,121 @@
+product_id,product_name,industry,weight_grams,fragility_level,shipping_category
+1,Pen Set,Food,559,Medium,Standard
+2,T-Shirt,Electronics,4902,Low,Standard
+3,Water Kettle,Fashion,3928,High,Basic
+4,Shampoo Bottle,Healthcare,1787,Low,Premium
+5,Shoes,Healthcare,2352,High,Standard
+6,Belt,Toys,1455,Low,Standard
+7,Calculator,Cosmetics,2820,Medium,Standard
+8,LED Bulb,Healthcare,716,High,Premium
+9,Shampoo Bottle,Cosmetics,893,Medium,Premium
+10,Marker Pack,Toys,2319,Medium,Basic
+11,Puzzle Box,Home Appliances,512,Low,Basic
+12,Headphones,Cosmetics,3993,High,Standard
+13,Toy Car,Electronics,4620,Medium,Premium
+14,Calculator,Electronics,230,Low,Premium
+15,Laptop,Home Appliances,4501,High,Standard
+16,Jacket,Fashion,3846,Low,Basic
+17,Notebook,Food,1891,High,Premium
+18,Face Cream,Fashion,1807,Medium,Premium
+19,Shampoo Bottle,Food,2245,High,Standard
+20,Blender,Electronics,1436,Low,Standard
+21,Doll,Fashion,92,Medium,Basic
+22,Belt,Fashion,2465,Medium,Basic
+23,Thermometer,Fashion,999,Low,Standard
+24,Belt,Fashion,4551,Medium,Basic
+25,Board Game,Cosmetics,4409,High,Premium
+26,Chocolate Bar,Electronics,4540,High,Standard
+27,Iron,Cosmetics,1357,High,Basic
+28,File Folder,Electronics,1522,Low,Basic
+29,Notebook,Electronics,1385,High,Premium
+30,Face Cream,Healthcare,3371,Low,Basic
+31,Marker Pack,Electronics,4780,Medium,Standard
+32,Board Game,Healthcare,1345,Low,Standard
+33,Thermometer,Cosmetics,4669,High,Premium
+34,Board Game,Home Appliances,4331,Low,Premium
+35,Cookies Pack,Home Appliances,578,High,Premium
+36,Shoes,Electronics,2499,Medium,Basic
+37,Cereal Box,Fashion,2578,Medium,Standard
+38,Sanitizer Bottle,Electronics,1732,Medium,Standard
+39,Marker Pack,Electronics,1867,High,Standard
+40,Headphones,Food,828,High,Basic
+41,Sunscreen,Electronics,2183,Low,Basic
+42,Face Cream,Food,3623,Low,Premium
+43,Shampoo Bottle,Fashion,4661,Medium,Premium
+44,Chocolate Bar,Electronics,4394,Medium,Basic
+45,Iron,Home Appliances,1430,Medium,Standard
+46,Puzzle Box,Electronics,4833,Low,Basic
+47,Jeans,Home Appliances,1103,Medium,Basic
+48,Handbag,Food,2922,Low,Basic
+49,Jeans,Fashion,663,Low,Standard
+50,Smartphone,Toys,2444,Low,Premium
+51,Belt,Cosmetics,525,High,Premium
+52,Toy Car,Home Appliances,4157,Low,Basic
+53,LED Bulb,Food,789,Low,Premium
+54,Spice Jar,Home Appliances,2892,High,Premium
+55,Jeans,Fashion,118,Low,Premium
+56,Smartphone,Fashion,4769,Low,Basic
+57,Router,Electronics,3937,High,Basic
+58,Shoes,Cosmetics,4409,High,Standard
+59,Jacket,Electronics,4161,Medium,Basic
+60,Doll,Healthcare,2132,High,Standard
+61,Blender,Fashion,447,Low,Basic
+62,Bluetooth Speaker,Cosmetics,4328,Medium,Standard
+63,Jacket,Healthcare,1386,Low,Premium
+64,Calculator,Fashion,4954,Low,Premium
+65,Shoes,Healthcare,1168,High,Standard
+66,Vitamin Bottle,Electronics,3749,High,Standard
+67,Soap Bar,Electronics,1384,Medium,Premium
+68,Air Purifier Filter,Fashion,4886,Low,Basic
+69,Toy Car,Food,1511,Low,Premium
+70,Air Purifier Filter,Healthcare,2845,Low,Premium
+71,LED Bulb,Cosmetics,4353,High,Premium
+72,Calculator,Toys,3713,High,Basic
+73,Air Purifier Filter,Electronics,2597,Low,Basic
+74,Jacket,Toys,1459,Low,Basic
+75,T-Shirt,Healthcare,4391,High,Premium
+76,Lip Balm,Electronics,660,Medium,Premium
+77,Sanitizer Bottle,Fashion,680,High,Standard
+78,Water Kettle,Electronics,1594,Low,Basic
+79,Belt,Healthcare,3969,Low,Premium
+80,File Folder,Cosmetics,4578,Medium,Standard
+81,Tablet,Healthcare,1001,High,Standard
+82,Chocolate Bar,Toys,605,Low,Premium
+83,Water Kettle,Fashion,4562,Medium,Standard
+84,Doll,Cosmetics,2327,High,Standard
+85,Tablet,Healthcare,2648,Medium,Basic
+86,Cookies Pack,Cosmetics,4248,High,Standard
+87,Pen Set,Electronics,390,High,Premium
+88,Spice Jar,Home Appliances,3244,High,Premium
+89,Tablet,Healthcare,3543,Low,Standard
+90,Smartphone,Toys,3760,Low,Basic
+91,First Aid Kit,Electronics,4923,High,Premium
+92,Mixer Grinder,Food,4244,Low,Basic
+93,Face Cream,Fashion,2439,Medium,Standard
+94,Mixer Grinder,Fashion,3020,Medium,Standard
+95,Chocolate Bar,Electronics,4034,High,Basic
+96,Cereal Box,Food,2146,Medium,Standard
+97,Router,Home Appliances,863,Low,Premium
+98,Calculator,Healthcare,2677,Low,Standard
+99,Board Game,Healthcare,4956,Low,Basic
+100,Juice Bottle,Cosmetics,83,Medium,Basic
+101,Face Cream,Electronics,3407,Low,Premium
+102,Shoes,Home Appliances,4087,High,Standard
+103,Cookies Pack,Food,2166,High,Standard
+104,Jacket,Food,1149,Low,Standard
+105,Iron,Fashion,1858,Low,Standard
+106,Lip Balm,Healthcare,4798,Low,Standard
+107,Handbag,Home Appliances,596,Low,Basic
+108,First Aid Kit,Cosmetics,393,High,Premium
+109,Thermometer,Cosmetics,2006,High,Basic
+110,T-Shirt,Fashion,243,Low,Basic
+111,Smartphone,Healthcare,1051,Low,Basic
+112,Bluetooth Speaker,Fashion,939,High,Basic
+113,Notebook,Cosmetics,3726,Medium,Basic
+114,Sanitizer Bottle,Home Appliances,1354,Low,Premium
+115,Soap Bar,Home Appliances,1228,Low,Basic
+116,Belt,Toys,517,Medium,Basic
+117,Perfume Bottle,Healthcare,1292,Low,Standard
+118,Router,Fashion,1431,Low,Basic
+119,Rice Bag,Healthcare,2267,High,Premium
+120,Doll,Home Appliances,4682,Medium,Premium
