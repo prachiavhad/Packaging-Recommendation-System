@@ -17,29 +17,38 @@
         .progress-bar { background: linear-gradient(90deg, #004d61, var(--sky)); transition: width 1s; }
                 .hidden { display: none; }
         .compare-row { border-left: 4px solid var(--gold) !important; background: rgba(255, 193, 7, 0.05); }
-       .winner-glow {
-       border: 2px solid #28a745 !important;
-       box-shadow: 0 0 15px rgba(40, 167, 69, 0.4);
-       position: relative;
-       padding-top: px;   
-
-}
-    .winner-badge {
-    position: absolute;
-    top: 12px;              
-    left: 50%;
-    transform: translateX(-50%);
-    background: #28a745;
-    color: white;
-    font-size: 0.7rem;
-    padding: 3px 10px;
-    border-radius: 12px;
-    font-weight: bold;
-    white-space: nowrap;
-    z-index: 2;
+.compare-value {
+    color: #000 !important;
+    font-weight: 500;
 }
 
-    </style>
+.compare-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 14px 8px;
+}
+
+.winner-badge {
+    background: transparent;
+    color: #28a745;          /* GREEN */
+    font-weight: 800;        /* BOLD */
+    font-size: 0.75rem;
+    border: 2px solid #28a745;
+    padding: 4px 12px;
+    border-radius: 14px;
+    text-transform: uppercase;
+}
+
+
+.winner-glow {
+    border: 2px solid var(--green) !important;
+    box-shadow: 0 0 12px rgba(40,167,69,0.45);
+}
+
+
+</style>
 </head>
 <body>
 
@@ -113,7 +122,7 @@
             <div class="mb-4">
                 <div style="display: flex !important; justify-content: space-between !important; margin-bottom: 5px !important;">
                     <span style="color: #00d4ff !important; font-weight: bold !important; font-size: 0.9rem !important; display: inline !important;">
-                     ♻️ BIODEGRADABILITY
+                    ♻️ BIODEGRADABILITY
                     </span>
                     <span id="valBio" style="color: #00d4ff !important; font-weight: bold !important;">0%</span>
                 </div>
@@ -263,16 +272,23 @@ function showComparison() {
     document.getElementById('compareHead').innerHTML = `
         <tr class="table-dark">
             <th>Key Metrics</th>
-            <th class="${winnerIndex === 0 ? 'winner-glow' : ''}">
-                ${winnerIndex === 0 ? '<span class="winner-badge">ECO WINNER</span>' : ''}
-                <span class="text-info">${m1.material_name}</span>
-            </th>
-            <th class="${winnerIndex === 1 ? 'winner-glow' : ''}">
-                ${winnerIndex === 1 ? '<span class="winner-badge">ECO WINNER</span>' : ''}
-                <span class="text-info">${m2.material_name}</span>
-            </th>
-        </tr>
-    `;
+
+
+    <th class="${winnerIndex === 0 ? 'winner-glow' : ''}">
+        <div class="compare-header" >
+            ${winnerIndex === 0 ? '<span class="winner-badge">ECO WINNER</span>' : ''}
+            <span class="text-info fw-bold">${m1.material_name}</span>
+        </div>
+    </th>
+
+<th class="${winnerIndex === 1 ? 'winner-glow' : ''}">
+        <div class="compare-header">
+            ${winnerIndex === 1 ? '<span class="winner-badge">ECO WINNER</span>' : ''}
+            <span class="text-info fw-bold">${m2.material_name}</span>
+        </div>
+    </th>
+</tr>
+`;
 
     // ---------- COMPARISON BODY ----------
     const rows = [
@@ -290,13 +306,11 @@ function showComparison() {
 
         return `
             <tr>
-                <td class="text-secondary fw-bold">${r.label}</td>
-                <td class="${winnerIndex === 0 && r.key === 'suitability_index' ? 'fw-bold text-success' : ''}">
-                    ${v1}
-                </td>
-                <td class="${winnerIndex === 1 && r.key === 'suitability_index' ? 'fw-bold text-success' : ''}">
-                    ${v2}
-                </td>
+               <td class="text-secondary fw-bold" "compare-value">${r.label}</td>
+<td class="compare-value">${v1}</td>
+<td class="compare-value">${v2}</td>
+
+
             </tr>
         `;
     }).join('');
