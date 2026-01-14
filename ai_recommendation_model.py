@@ -8,7 +8,7 @@ from xgboost import XGBRegressor
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 
 def run_module_4():
-    print("--- 🧠 Training AI Recommendation Models ---")
+    print("--- Training AI Recommendation Models ---")
     
     try:
         # 1. Load Data
@@ -41,11 +41,11 @@ def run_module_4():
         joblib.dump(co2_model, 'co2_predictor.joblib')
         joblib.dump(feature_names, 'ml_features_v2.joblib')
         
-        print("✅ Success! Models saved as .joblib files.")
+        print("Success! Models saved as .joblib files.")
         print(f"Features trained on: {len(feature_names)}")
 
     except Exception as e:
-        print(f"❌ Error during training: {e}")
+        print(f"Error during training: {e}")
 
 if __name__ == "__main__":
     run_module_4()
