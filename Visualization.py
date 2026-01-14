@@ -2,7 +2,6 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-# Ensure the file path is correct
 file_path = 'prepared_materials_data.csv'
 df = pd.read_csv(file_path)
 
