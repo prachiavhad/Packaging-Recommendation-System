@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoPack AI - Industry Intelligence</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root { --bg: #0f1111; --card-bg: #1c1e1e; --sky: #00d4ff; --gold: #ffc107; }
+        body { background-color: var(--bg); color: #e0e0e0; font-family: 'Inter', sans-serif; }
+        .hero-header { background: linear-gradient(135deg, #004d61 0%, #00d4ff 100%); padding: 2rem 1rem; border-bottom: 4px solid var(--sky); }
+        .card { background-color: var(--card-bg); border: 1px solid #333; border-radius: 12px; }
+        .form-label { color: var(--sky); font-weight: 600; }
+        .table { color: #e0e0e0; border-color: #333; }
+        .cost-badge { background-color: var(--sky); color: #000; font-weight: 800; padding: 4px 10px; border-radius: 4px; }
+        .progress { background-color: #333; height: 16px; border-radius: 8px; }
+        .progress-bar { background: linear-gradient(90deg, #004d61, var(--sky)); transition: width 1s; }
+                .hidden { display: none; }
+        .compare-row { border-left: 4px solid var(--gold) !important; background: rgba(255, 193, 7, 0.05); }
+       .winner-glow {
+       border: 2px solid #28a745 !important;
+       box-shadow: 0 0 15px rgba(40, 167, 69, 0.4);
+       position: relative;
+       padding-top: px;   /* ✅ SPACE FOR BADGE */
+
+}
+    .winner-badge {
+    position: absolute;
+    top: 12px;              /* ✅ inside header, not overlapping text */
+    left: 50%;
+    transform: translateX(-50%);
+    background: #28a745;
+    color: white;
+    font-size: 0.7rem;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-weight: bold;
+    white-space: nowrap;
+    z-index: 2;
+}
+
+    </style>
+</head>
+<body>
+
+<header class="hero-header text-center mb-4">
+    <h1 class="display-6 fw-bold text-white">EcoPack AI</h1>
+    <p class="text-white-50">AI-powered full-stack web platform</p>
+</header>
+
+<div class="container pb-5">
+    <div class="row g-4">
+        <div class="col-lg-3">
+            <div class="card p-4 shadow">
+                <h5 class="text-info mb-4">Product Profiles</h5>
+                <form id="recommendForm">
+                    <div class="mb-3">
+                        <label class="form-label">Industry Standards</label>
+                        <select class="form-select bg-dark text-white border-secondary" id="industry">
+                          <option value="Food & Beverage">Food & Beverage</option>
+                            <option value="Electronics">Electronics</option>
+                            <option value="Fashion">Fashion</option>
+                            <option value="Healthcare">Healthcare</option>
+                            <option value="Toys">Toys</option>
+                            <option value="Cosmetics">Cosmetics</option>
+                            <option value="Home Appliance">Home Appliance</option>
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label">Strength: <span id="sVal">50</span> N</label>
+                        <input type="range" class="form-range" id="strength" min="10" max="100" value="50">
+                    </div>
+                    <button type="submit" class="btn btn-info w-100 fw-bold">GENERATE </button>
+                </form>
+            </div>
+        </div>
+
+        <div class="col-lg-9">
+            <div class="card p-4 shadow mb-4">
+                <h5 class="text-info mb-3">AI-powered Recommendation System </h5>
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle text-center">
+                        <thead>
+                            <tr class="text-secondary small">
+                                <th>Compare</th>
+                                <th>Rank</th>
+                                <th>Material</th>
+                                <th>Strength</th>
+                                <th>Cost (₹)</th>
+                                <th>CO2</th>
+                            </tr>
+                        </thead>
+                        <tbody id="rankingBody">
+                            <tr><td colspan="6" class="py-5 text-muted">Awaiting analysis...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+    <div id="detailSection" class="card p-4 border-info hidden shadow-lg mt-3" style="display: block !important;">
+    <div class="row align-items-center">
+        <div class="col-md-4 border-end border-secondary text-center text-md-start">
+            <h3 class="text-info mb-1" id="detName" style="color: #00d4ff !important;">Material</h3>
+            <p id="detType" class="text-secondary small mb-3">Industry Standard</p>
+            <div class="bg-dark p-3 rounded text-center" style="background-color: #252525 !important;">
+                <small class="text-secondary d-block fw-bold" style="font-size: 0.7rem;">AI SUITABILITY</small>
+                <h1 class="text-white mb-0" id="suitabilityScore" style="color: white !important;">0.0</h1>
+            </div>
+        </div>
+
+        <div class="col-md-8 ps-md-5">
+            
+            <div class="mb-4">
+                <div style="display: flex !important; justify-content: space-between !important; margin-bottom: 5px !important;">
+                    <span style="color: #00d4ff !important; font-weight: bold !important; font-size: 0.9rem !important; display: inline !important;">
+                     ♻️ BIODEGRADABILITY
+                    </span>
+                    <span id="valBio" style="color: #00d4ff !important; font-weight: bold !important;">0%</span>
+                </div>
+                <div class="progress" style="height: 18px !important; background-color: #333 !important; border-radius: 10px !important;">
+                    <div id="barBio" class="progress-bar" role="progressbar" style="width: 0%; background: linear-gradient(90deg, #004d61, #00d4ff) !important;"></div>
+                </div>
+            </div>
+
+            <div class="mb-2">
+                <div style="display: flex !important; justify-content: space-between !important; margin-bottom: 5px !important;">
+                    <span style="color: #00d4ff !important; font-weight: bold !important; font-size: 0.9rem !important; display: inline !important;">
+                        🔄 RECYCLABILITY
+                    </span>
+                    <span id="valRec" style="color: #00d4ff !important; font-weight: bold !important;">0%</span>
+                </div>
+                <div class="progress" style="height: 18px !important; background-color: #333 !important; border-radius: 10px !important;">
+                    <div id="barRec" class="progress-bar" role="progressbar" style="width: 0%; background-color: #28a745 !important;"></div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+       <div id="compareSection" class="row mt-4 hidden">
+        <div class="col-12">
+            <div class="card p-4 border-warning shadow-lg">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="text-warning m-0">Comparison</h4>
+                    <button class="btn btn-outline-warning btn-sm" onclick="closeCompare()">Close Comparison</button>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-bordered text-center m-0">
+                        <thead id="compareHead"></thead>
+                        <tbody id="compareBody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+</div>
+
+<script>
+const rupee = new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' });
+let selectedMaterials = [];
+
+document.getElementById('strength').oninput = e =>
+    document.getElementById('sVal').innerText = e.target.value;
+
+document.getElementById('recommendForm').onsubmit = async e => {
+    e.preventDefault();
+    const body = document.getElementById('rankingBody');
+    body.innerHTML = '<tr><td colspan="6">🚀 Running AI Analysis...</td></tr>';
+
+    const res = await fetch('http://127.0.0.1:5000/api/recommend', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            industry: document.getElementById('industry').value,
+            strength: document.getElementById('strength').value
+        })
+    });
+
+    const data = await res.json();
+    if (data.status === "success") renderTable(data.recommendations);
+};
+
+function renderTable(recs) {
+    const body = document.getElementById('rankingBody');
+    body.innerHTML = '';
+    selectedMaterials = [];
+
+    recs.forEach((item, i) => {
+        const row = document.createElement('tr');
+        row.style.cursor = "pointer";
+
+        row.onclick = () => {
+            document.querySelectorAll('#rankingBody tr').forEach(r => r.classList.remove('table-active'));
+            row.classList.add('table-active');
+            showDetails(item);
+        };
+
+        row.innerHTML = `
+            <td onclick="event.stopPropagation()">
+                <input type="checkbox" class="form-check-input"
+                onchange='toggleCompare(${JSON.stringify(item)})'>
+            </td>
+            <td><span class="cost-badge">#${i + 1}</span></td>
+            <td><span >${item.material_name}</span></td>
+            <td>${item.strength} N</td>
+ 
+            <td><span>${rupee.format(item.predicted_cost)}</span></td>
+            <td>${item.predicted_co2}</td>
+        `;
+        body.appendChild(row);
+    });
+
+    if (recs.length > 0) showDetails(recs[0]);
+}
+
+function showDetails(item) {
+    document.getElementById('detName').innerText = item.material_name;
+    document.getElementById('detType').innerText =
+        document.getElementById('industry').value + " Industry";
+
+    document.getElementById('suitabilityScore').innerText =
+        item.suitability_index.toFixed(2);
+
+    document.getElementById('valBio').innerText = item.biodegradability_score + '%';
+    document.getElementById('valRec').innerText = item.recyclability_pct + '%';
+
+    document.getElementById('barBio').style.width = item.biodegradability_score + '%';
+    document.getElementById('barRec').style.width = item.recyclability_pct + '%';
+}
+
+function toggleCompare(item) {
+    const idx = selectedMaterials.findIndex(
+        m => m.material_name === item.material_name
+    );
+
+    if (idx > -1) selectedMaterials.splice(idx, 1);
+    else if (selectedMaterials.length < 2) selectedMaterials.push(item);
+    else {
+        event.target.checked = false;
+        return alert("Select only 2 materials to compare.");
+    }
+
+    if (selectedMaterials.length === 2) showComparison();
+    else document.getElementById('compareSection').classList.add('hidden');
+}
+
+function showComparison() {
+    const section = document.getElementById('compareSection');
+    section.classList.remove('hidden');
+
+    const m1 = selectedMaterials[0];
+    const m2 = selectedMaterials[1];
+
+    const score1 = parseFloat(m1.suitability_index);
+    const score2 = parseFloat(m2.suitability_index);
+
+    const winnerIndex = score1 >= score2 ? 0 : 1;
+
+    // ---------- HEADER WITH ECO WINNER ----------
+    document.getElementById('compareHead').innerHTML = `
+        <tr class="table-dark">
+            <th>Key Metrics</th>
+            <th class="${winnerIndex === 0 ? 'winner-glow' : ''}">
+                ${winnerIndex === 0 ? '<span class="winner-badge">ECO WINNER</span>' : ''}
+                <span class="text-info">${m1.material_name}</span>
+            </th>
+            <th class="${winnerIndex === 1 ? 'winner-glow' : ''}">
+                ${winnerIndex === 1 ? '<span class="winner-badge">ECO WINNER</span>' : ''}
+                <span class="text-info">${m2.material_name}</span>
+            </th>
+        </tr>
+    `;
+
+    // ---------- COMPARISON BODY ----------
+    const rows = [
+        { label: 'Suitability Score', key: 'suitability_index', suffix: ' /10' },
+        { label: 'Estimated Cost', key: 'predicted_cost', currency: true },
+        { label: 'Strength', key: 'strength', suffix: ' N' },
+        { label: 'CO₂ Footprint', key: 'predicted_co2', suffix: '' },
+        { label: 'Biodegradability', key: 'biodegradability_score', suffix: '%' },
+        { label: 'Recyclability', key: 'recyclability_pct', suffix: '%' }
+    ];
+
+    document.getElementById('compareBody').innerHTML = rows.map(r => {
+        const v1 = r.currency ? rupee.format(m1[r.key]) : (m1[r.key] + (r.suffix || ''));
+        const v2 = r.currency ? rupee.format(m2[r.key]) : (m2[r.key] + (r.suffix || ''));
+
+        return `
+            <tr>
+                <td class="text-secondary fw-bold">${r.label}</td>
+                <td class="${winnerIndex === 0 && r.key === 'suitability_index' ? 'fw-bold text-success' : ''}">
+                    ${v1}
+                </td>
+                <td class="${winnerIndex === 1 && r.key === 'suitability_index' ? 'fw-bold text-success' : ''}">
+                    ${v2}
+                </td>
+            </tr>
+        `;
+    }).join('');
+
+    section.scrollIntoView({ behavior: 'smooth' });
+}
+
+    function closeCompare() {
+        document.getElementById('compareSection').classList.add('hidden');
+        selectedMaterials = [];
+        document.querySelectorAll('.form-check-input').forEach(i => i.checked = false);
+    }
+
+
+</script>
+
+</body>
+</html>
