@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EcoPack AI - Industry Intelligence</title>
+    <link rel="icon" type="image/png" href="/static/favicon.png">
+    <title>EcoPack AI</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         :root { --bg: #0f1111; --card-bg: #1c1e1e; --sky: #00d4ff; --gold: #ffc107; }
@@ -46,6 +47,115 @@
     border: 2px solid var(--green) !important;
     box-shadow: 0 0 12px rgba(40,167,69,0.45);
 }
+/* Add this to your existing <style> block */
+    .bi-dashboard-sky {
+        background-color: var(--card-bg); /* Using your existing card-bg variable */
+        border: 1px solid #333;
+        border-radius: 12px;
+        padding: 30px;
+        margin-top: 40px;
+    }
+
+    .bi-header-text {
+        color: var(--sky) !important;
+        font-weight: 40;
+        text-transform: camelcase;
+        letter-spacing: 1 px;
+    }
+
+    .btn-sky {
+        background-color: transparent;
+        color: var(--sky);
+        border: 2px solid var(--sky);
+        font-weight: 600;
+        transition: all 0.3s ease;
+        padding: 8px 20px;
+    }
+
+    .btn-sky:hover {
+        background-color: var(--sky);
+        color: #000;
+        box-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
+    }
+
+.bi-dashboard-dark {
+        background-color: #121212;
+        color: #e0e0e0;
+        padding: 40px;
+        border-radius: 15px;
+        margin-top: 50px;
+    }
+
+    .bi-card {
+        background-color: #1e1e1e;
+        border: 1px solid #333;
+        border-radius: 10px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .bi-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 255, 150, 0.2); /* Subtle green glow */
+        border-color: #00ff96;
+    }
+
+    .bi-card-header {
+        background-color: #252525;
+        color: #00ff96; /* Neon Green Accent */
+        border-bottom: 1px solid #333;
+        padding: 10px;
+    }
+
+    .bi-btn-outline {
+        border: 2px solid #00ff96;
+        color: #00ff96;
+        background: transparent;
+        transition: all 0.3s;
+    }
+
+    .bi-btn-outline:hover {
+        background: #00ff96;
+        color: #121212;
+    }
+.bi-dashboard-mini {
+        background-color: var(--card-bg);
+        border: 1px solid #333;
+        border-radius: 12px;
+        padding: 15px 25px; /* Reduced padding for a thinner line */
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* Small lowercase header */
+    .bi-text-small {
+        color: var(--sky) !important;
+        font-size: 1.1rem;
+        font-weight: 500;
+        text-transform: lowercase; /* Forces small letters */
+        margin: 0;
+    }
+
+    /* Streamlined buttons */
+    .btn-sky-mini {
+        background-color: transparent;
+        color: var(--sky);
+        border: 1.5px solid var(--sky);
+        font-size: 0.85rem;
+        text-transform: lowercase; /* Forces small letters */
+        padding: 5px 15px;
+        border-radius: 8px;
+        transition: 0.3s;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    .btn-sky-mini:hover {
+        background-color: var(--sky);
+        color: #000;
+        box-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+    }
 
 
 </style>
@@ -54,14 +164,14 @@
 
 <header class="hero-header text-center mb-4">
     <h1 class="display-6 fw-bold text-white">EcoPack AI</h1>
-    <p class="text-white-50">AI-powered full-stack web platform</p>
+    <p class="text-white-50"> AI-Powered Sustainable Packaging Recommendation System</p>
 </header>
 
 <div class="container pb-5">
     <div class="row g-4">
         <div class="col-lg-3">
             <div class="card p-4 shadow">
-                <h5 class="text-info mb-4">Product Profiles</h5>
+                <h5 class="text-info mb-4">Product Attributes</h5>
                 <form id="recommendForm">
                     <div class="mb-3">
                         <label class="form-label">Industry Standards</label>
@@ -76,7 +186,7 @@
                         </select>
                     </div>
                     <div class="mb-4">
-                        <label class="form-label">Strength: <span id="sVal">50</span> N</label>
+                        <label class="form-label">Strength: <span id="sVal">50</span></label>
                         <input type="range" class="form-range" id="strength" min="10" max="100" value="50">
                     </div>
                     <button type="submit" class="btn btn-info w-100 fw-bold">GENERATE </button>
@@ -86,7 +196,7 @@
 
         <div class="col-lg-9">
             <div class="card p-4 shadow mb-4">
-                <h5 class="text-info mb-3">AI-powered Recommendation System </h5>
+                <h5 class="text-info mb-3">Ranked Recommendations</h5>
                 <div class="table-responsive">
                     <table class="table table-hover align-middle text-center">
                         <thead>
@@ -122,7 +232,7 @@
             <div class="mb-4">
                 <div style="display: flex !important; justify-content: space-between !important; margin-bottom: 5px !important;">
                     <span style="color: #00d4ff !important; font-weight: bold !important; font-size: 0.9rem !important; display: inline !important;">
-                    ♻️ BIODEGRADABILITY
+                   ♻️ BIODEGRADABILITY
                     </span>
                     <span id="valBio" style="color: #00d4ff !important; font-weight: bold !important;">0%</span>
                 </div>
@@ -163,10 +273,46 @@
             </div>
         </div>
     </div>
+<div class="container bi-dashboard-sky">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="bi-header-text m-0">Business Intelligence Dashboard</h2>
+        <div class="d-flex gap-3">
+            <button onclick="window.location.href='/api/download/pdf'" class="btn btn-sky">
+                EXPORT PDF
+            </button>
+            <button onclick="window.location.href='/api/download/excel'" class="btn btn-sky">
+                EXPORT EXCEL
+            </button>
+        </div>
+    </div>
 
+    <div class="row g-4 mt-2">
+        <div class="col-md-4">
+            <div class="card bg-transparent border-secondary h-100">
+                <div class="card-header text-center small" style="color: var(--sky);">MATERIAL POPULARITY</div>
+                <a href="static/plots/usage.png" target="_blank">
+                    <img src="static/plots/usage.png" class="img-fluid p-2 rounded" alt="Usage Trends">
+                </a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card bg-transparent border-secondary h-100">
+                <div class="card-header text-center small" style="color: var(--sky);">COST VS CO2 ANALYSIS</div>
+                <a href="static/plots/tradeoff.png" target="_blank">
+                    <img src="static/plots/tradeoff.png" class="img-fluid p-2 rounded" alt="Trade-off">
+                </a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card bg-transparent border-secondary h-100">
+                <div class="card-header text-center small" style="color: var(--sky);">RECYCLABILITY INDEX</div>
+                <a href="static/plots/radar.png" target="_blank">
+                    <img src="static/plots/radar.png" class="img-fluid p-2 rounded" alt="Recyclability">
+                </a>
+            </div>
+        </div>
     </div>
 </div>
-
 <script>
 const rupee = new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' });
 let selectedMaterials = [];
@@ -323,7 +469,44 @@ function showComparison() {
         selectedMaterials = [];
         document.querySelectorAll('.form-check-input').forEach(i => i.checked = false);
     }
+    
+    function triggerDownload(type) {
+    // This calls the Flask route you created above
+    window.location.href = `/api/download/${type}`;
+   }
 
+// Function to handle downloads
+function downloadReport(format) {
+    // format will be 'pdf' or 'excel'
+    const downloadUrl = `/api/download/${format}`;
+    
+    // This triggers the browser to open the URL, which Flask serves as an attachment
+    window.location.href = downloadUrl;
+}
+
+// Function to refresh the BI Dashboard data and files
+async function refreshAnalytics() {
+    const btn = document.getElementById('refreshBtn');
+    btn.innerText = "⏳ Processing...";
+    btn.disabled = true;
+
+    try {
+        const response = await fetch('/api/run-bi');
+        const data = await response.json();
+        
+        if (data.status === 'success') {
+            alert("BI Dashboard Updated successfully!");
+            location.reload(); // Reload to show updated graphs
+        } else {
+            alert("Error: " + data.message);
+        }
+    } catch (error) {
+        console.error("Error running BI pipeline:", error);
+    } finally {
+        btn.innerText = "REFRESH ANALYTICS";
+        btn.disabled = false;
+    }
+}
 
 </script>
 
