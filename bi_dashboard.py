@@ -5,16 +5,24 @@ import plotly.express as px
 from reportlab.lib.pagesizes import A4
 from reportlab.pdfgen import canvas
 import os
+import matplotlib.pyplot as plt
 
 # ---------------- FOLDERS ----------------
 os.makedirs("reports", exist_ok=True)
 os.makedirs("static/plots", exist_ok=True)
 
-
+plt.style.use('dark_background')
+plt.rcParams.update({
+    "figure.facecolor": "#1c1e1e",  
+    "axes.facecolor": "#1c1e1e",
+    "axes.edgecolor": "#333333",
+    "text.color": "#e0e0e0",
+    "axes.labelcolor": "#00d4ff",   # Matches your --sky
+    "xtick.color": "#e0e0e0",
+    "ytick.color": "#e0e0e0"
+})
 def run_bi_pipeline():
-    # ---------------- LOAD DATA ----------------
 
-    # ---------------- LOAD DATA ----------------
     conn = sqlite3.connect("materials.db")
 
     df = pd.read_sql(
@@ -74,13 +82,13 @@ def run_bi_pipeline():
     fig_usage.show()
 
     # Chart 1: Material Usage (Matplotlib)
-    plt.figure()
-    plt.bar(df["material"], df["usage_count"])
-    plt.title("Material Usage Trends")
-    plt.ylabel("Usage Count")
-    plt.xticks(rotation=45)
+    plt.figure(figsize=(15, 8)) 
+    plt.bar(df["material"], df["usage_count"], color="#00d4ff", alpha=0.8)
+    plt.title("Material Usage Trends", fontsize=16, pad=20)
+    plt.ylabel("Usage Count", fontsize=12)
+    plt.xticks(rotation=45, ha='right', fontsize=9) 
     plt.tight_layout()
-    plt.savefig("static/plots/usage.png")
+    plt.savefig("static/plots/usage.png", bbox_inches='tight', dpi=150)
     plt.close()
 
     # Chart 2: Cost vs CO₂ (Plotly)
@@ -95,14 +103,16 @@ def run_bi_pipeline():
     fig_tradeoff.show()
 
     # Chart 2: Cost vs CO₂ (Matplotlib)
-    plt.figure()
-    plt.scatter(df["cost"], df["co2"])
-    plt.xlabel("Cost")
-    plt.ylabel("CO₂")
-    plt.title("Cost vs CO₂ Trade-off")
-    plt.tight_layout()
-    plt.savefig("static/plots/tradeoff.png")
-    plt.close()
+    plt.figure(figsize=(10, 6))
+    plt.scatter(df["cost"], df["co2"], s=100, color="#ffc107", edgecolors="white", alpha=0.7)
+    plt.xlabel("Unit Cost (INR)", fontsize=12)
+    plt.ylabel("CO2 Emission Score", fontsize=12)
+    plt.title("Cost vs CO2 Footprint Trade-off", fontsize=14)
+    plt.figure(figsize=(10, 6))
+    plt.scatter(df["cost"], df["co2"], s=100, color="#ffc107", edgecolors="white", alpha=0.7)
+    plt.xlabel("Unit Cost (INR)", fontsize=12)
+    plt.ylabel("CO2 Emission Score", fontsize=12)
+    plt.title("Cost vs CO2 Footprint Trade-off", fontsize=14)
 
     # Chart 3: Recyclability (Plotly)
     fig_radar = px.line_polar(
@@ -115,14 +125,17 @@ def run_bi_pipeline():
     fig_radar.show()
 
     # Chart 3: Recyclability (Matplotlib)
-    plt.figure()
-    plt.plot(df["material"], df["recyclability"], marker="o")
-    plt.title("Recyclability Index")
-    plt.xticks(rotation=45)
+    plt.figure(figsize=(12, 6))
+    plt.plot(df["material"], df["recyclability"], marker="o", linewidth=2, color="#00d4ff", markersize=8)
+    plt.fill_between(df["material"], df["recyclability"], alpha=0.2, color="#00d4ff")
+    plt.title("Recyclability Index by Material", fontsize=14)
+    plt.xticks(rotation=45, ha='right', fontsize=9)
+    plt.ylabel("Recyclability %")
     plt.tight_layout()
-    plt.savefig("static/plots/radar.png")
+    plt.savefig("static/plots/radar.png", bbox_inches='tight', dpi=150)
     plt.close()
 
+    
     # ---------------- EXCEL ----------------
     excel_path = "reports/sustainability_report.xlsx"
     df.to_excel(excel_path, index=False)
@@ -164,7 +177,7 @@ def run_bi_pipeline():
 
     return co2_reduction_pct, cost_savings
 
-
+    
 # Allow standalone execution
 if __name__ == "__main__":
     run_bi_pipeline()
