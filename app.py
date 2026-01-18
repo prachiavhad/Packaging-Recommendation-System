@@ -2,9 +2,31 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 import pandas as pd
 import sqlite3
+import subprocess
+import os
+from flask import send_from_directory, abort
+from flask import render_template
 
 app = Flask(__name__)
 CORS(app)
+
+@app.route('/')
+def home():
+    # This tells Flask to look for index.html in a folder named 'templates'
+    # Or you can use send_from_directory if index.html is in your main folder
+    return send_from_directory('.', 'index.html')
+
+def log_selection(material_name):
+    try:
+        conn = sqlite3.connect('materials.db')
+        cursor = conn.cursor()
+        cursor.execute("INSERT INTO selection_logs (material_name) VALUES (?)", (material_name,))
+        conn.commit()
+        conn.close()
+    except Exception as e:
+        print(f"Logging Error: {e}")
+
+        
 
 # ------------------ INDUSTRY RULES ------------------
 INDUSTRY_RULES = {
@@ -27,6 +49,40 @@ INDUSTRY_WEIGHTS = {
     "Toys": {"strength": 0.4, "cost": 0.3, "co2": 0.3},
     "Home Appliance": {"strength": 0.6, "cost": 0.25, "co2": 0.15}
 }
+
+
+
+@app.route('/api/run-bi', methods=['GET'])
+def run_bi():
+    try:
+        # This runs your bi_dashboard.py script to refresh charts/files
+        subprocess.run(["python", "bi_dashboard.py"], check=True)
+        return jsonify({"status": "success", "message": "Dashboard Updated"})
+    except Exception as e:
+        return jsonify({"status": "error", "message": str(e)})
+
+import os
+from flask import send_from_directory, abort
+
+@app.route('/api/download/<file_type>')
+def download_file(file_type):
+    # This dynamically finds your 'reports' folder regardless of the computer name
+    report_folder = os.path.join(app.root_path, 'reports')
+    
+    if file_type == "pdf":
+        filename = "sustainability_report.pdf"
+    elif file_type == "excel":
+        filename = "sustainability_report.xlsx"
+    else:
+        return "Invalid file type", 400
+
+    # Check if file exists to prevent server crash
+    if os.path.exists(os.path.join(report_folder, filename)):
+        return send_from_directory(report_folder, filename, as_attachment=True)
+    else:
+        # This will tell you in the browser if the folder/file is missing
+        return f"Error: {filename} not found in {report_folder}", 404
+
 
 # ------------------ API ------------------
 @app.route('/api/recommend', methods=['POST'])
@@ -88,6 +144,11 @@ def recommend():
 
         df = df.sort_values("suitability_index", ascending=False).head(10)
 
+        if not df.empty:
+            top_material = df.iloc[0]['material_name']
+            log_selection(top_material)
+
+        # 3. RETURN THE JSON
         return jsonify({
             "status": "success",
             "recommendations": df.round(2).to_dict(orient="records")
