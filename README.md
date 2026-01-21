@@ -43,6 +43,7 @@ pip install -r requirements.txt
 4\. Database Configuration
 Update the credentials in db\_setup.py and
 run:
+
 python db\_setup.py
 
 python db\_ingestion.py
