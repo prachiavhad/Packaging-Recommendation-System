@@ -8,6 +8,7 @@ DB_PASSWORD = "pracHi"
 DB_HOST = "localhost"
 DB_PORT = "5433" 
 
+
 def ingest_csv_to_db(csv_file_path, table_name, column_list):
     conn = None
     try:
