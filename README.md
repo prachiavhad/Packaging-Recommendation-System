@@ -19,7 +19,8 @@ Technical Stack
 * Data Science: Pandas, NumPy, Matplotlib (BI Dashboard)
 * Deployment: Gunicorn, Render Cloud
 
-Project ArchitectureThe project is structured into four distinct milestones representing the end-to-end development lifecycle:
+Project Architecture
+The project is structured into four distinct milestones representing the end-to-end development lifecycle:
 * Data Engineering: PostgreSQL schema design and bulk data ingestion using StringIO buffers.
 * ML Pipeline: Feature engineering of CO\_2 and Cost-Efficiency indices.
 * API Development: Flask backend for serving real-time model inferences.
@@ -31,6 +32,7 @@ Installation & Setup
 * PostgreSQL 15+2. 
 
 2\. Clone the Repository
+
 git clone https://github.com/prachiavhad/Packaging-Recommendation System.git
 cd Packaging-Recommendation-System
 
