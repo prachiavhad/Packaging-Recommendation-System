@@ -33,7 +33,8 @@ Installation & Setup
 
 2\. Clone the Repository
 
-git clone https://github.com/prachiavhad/Packaging-Recommendation System.git
+git clone https://github.com/prachiavhad/Packaging-Recommendation-System.git
+
 cd Packaging-Recommendation-System
 
 3\. Install Dependencies
