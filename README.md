@@ -99,7 +99,7 @@ Deployment & Server Configuration
 
 Deployment Architecture
 
-<img width="500" height="300" alt="image" src="https://github.com/user-attachments/assets/86c743b9-e8d4-4157-b746-b6a6f09b0ebe" />
+<img width="500" height="300" alt="image" align-items: center src="https://github.com/user-attachments/assets/86c743b9-e8d4-4157-b746-b6a6f09b0ebe" />
 
 Installation & Setup
 
