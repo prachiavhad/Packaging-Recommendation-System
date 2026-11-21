@@ -1,4 +1,4 @@
-<img width="288" height="191" alt="image" src="https://github.com/user-attachments/assets/78204193-3559-469a-a8a9-a7d3d78a68ce" /><img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/b2363e41-4f94-4e36-87cd-078a3fcfa146" />EcoPack AI: Sustainable Packaging Recommendation System
+EcoPack AI: Sustainable Packaging Recommendation System
 
 EcoPack AI is an AI-powered decision-support system designed to help industries transition from traditional packaging to eco-friendly alternatives. By leveraging Machine Learning and Business Intelligence, the system predicts packaging material costs and CO₂ footprints while ranking materials based on a Sustainability Score.
 
@@ -99,26 +99,7 @@ Deployment & Server Configuration
 
 Deployment Architecture
 
-```text
-          Developer
-          /       \
-         /         \
-   Git & GitHub   Terraform
-   (Source Code)  (IaC)
-         |           |
-         |           v
-         |       AWS Infrastructure
-         |           |
-         |        EC2 (Ubuntu)
-         |           |
-         |        Nginx
-         |           |
-         |        Gunicorn
-         |           |
-         +------ Flask Application
-```
-
-<img width="300" height="200" alt="image" src="https://github.com/user-attachments/assets/86c743b9-e8d4-4157-b746-b6a6f09b0ebe" />
+<img width="500" height="300" alt="image" src="https://github.com/user-attachments/assets/86c743b9-e8d4-4157-b746-b6a6f09b0ebe" />
 
 Installation & Setup
 
