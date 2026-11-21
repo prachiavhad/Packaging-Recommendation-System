@@ -36,7 +36,7 @@ Technical Stack
 | Reverse Proxy | Nginx |
 | Version Control | Git, GitHub |
 
-## Project Architecture
+Project Architecture
 
 The project is structured around four major development milestones:
 
@@ -60,11 +60,11 @@ The project is structured around four major development milestones:
    - Cost-benefit analysis.
    - Automated PDF and Excel reporting.
 
-## Cloud Infrastructure & DevOps Deployment
+Cloud Infrastructure & DevOps Deployment
 
 EcoPack AI was deployed on an AWS EC2 instance using Terraform for Infrastructure as Code (IaC). The deployment involved provisioning cloud infrastructure, configuring networking and security, and setting up the application on an Ubuntu Linux server.
 
-### AWS Infrastructure with Terraform
+AWS Infrastructure with Terraform
 
 Terraform configuration files are maintained in the `Terraform/` directory.
 
@@ -77,7 +77,7 @@ Terraform/
 └── .terraform.lock.hcl
 ```
 
-**Terraform configuration files:**
+Terraform configuration files:
 
 - **main.tf:** Defines the AWS infrastructure resources used for deployment.
 - **provider.tf:** Configures the AWS provider for Terraform.
@@ -85,7 +85,7 @@ Terraform/
 - **outputs.tf:** Defines outputs from the Terraform configuration.
 - **.terraform.lock.hcl:** Locks provider dependency versions to maintain consistent Terraform configurations.
 
-### Deployment & Server Configuration
+Deployment & Server Configuration
 
 - **AWS EC2:** Provisioned an Ubuntu-based virtual server to host the Flask application.
 - **Terraform:** Used Infrastructure as Code to provision AWS infrastructure.
@@ -97,7 +97,7 @@ Terraform/
 - **Nginx:** Configured as a reverse proxy to handle incoming application requests.
 - **Git & GitHub:** Used for source code management and version control.
 
-### Deployment Architecture
+Deployment Architecture
 
 ```text
 Developer
@@ -127,36 +127,9 @@ Python Flask Application
 EcoPack AI
 ```
 
-## Repository Structure
+Installation & Setup
 
-```text
-Packaging-Recommendation-System/
-│
-├── Terraform/
-│   ├── main.tf
-│   ├── provider.tf
-│   ├── variables.tf
-│   ├── outputs.tf
-│   └── .terraform.lock.hcl
-│
-├── reports/
-│
-├── static/
-│
-├── Materials_dataset before Cleaning.csv
-├── Product_dataset before Cleaning.csv
-│
-├── Module 1 & 2 Documentation.md
-├── Module 3 & 4 Documentation.md
-├── Module 5 & 6 Documentation.md
-├── Module 7 & 8 Documentation.md
-│
-└── README.md
-```
-
-## Installation & Setup
-
-### 1. Prerequisites
+1. Prerequisites
 
 Make sure the following tools are installed:
 
@@ -164,7 +137,7 @@ Make sure the following tools are installed:
 - PostgreSQL 15 or later
 - Git
 
-### 2. Clone the Repository
+2. Clone the Repository
 
 ```bash
 git clone -b Ecopack_AI https://github.com/prachiavhad/Packaging-Recommendation-System.git
@@ -172,13 +145,13 @@ git clone -b Ecopack_AI https://github.com/prachiavhad/Packaging-Recommendation-
 cd Packaging-Recommendation-System
 ```
 
-### 3. Install Dependencies
+3. Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 4. Database Configuration
+4. Database Configuration
 
 Configure your PostgreSQL database credentials in `db_setup.py`.
 
@@ -202,7 +175,7 @@ Open the application in your browser:
 http://127.0.0.1:5000
 ```
 
-## Model Performance
+Model Performance
 
 - **Cost Predictor:** Random Forest Regressor, optimized to capture non-linear packaging material price fluctuations.
 - **CO₂ Predictor:** XGBoost Regressor, used for environmental footprint forecasting.
@@ -210,7 +183,7 @@ http://127.0.0.1:5000
 
 The prediction models support data-driven packaging comparisons for procurement and sustainability decision-making.
 
-## Future Scope
+Future Scope
 
 - Improve model performance with additional packaging material datasets.
 - Expand sustainability evaluation criteria.
