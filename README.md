@@ -169,4 +169,4 @@ Author
 
 **Prachi Avhad**
 
-[GitHub Repository](https://github.com/prachiavhad/Packaging-Recommendation-System)
+[Ecopack AI](https://github.com/prachiavhad/Packaging-Recommendation-System)
