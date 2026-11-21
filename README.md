@@ -190,7 +190,7 @@ Future Scope
 - Enhance cloud infrastructure and deployment automation.
 - Extend the recommendation system to support additional industries.
 
-## Author
+Author
 
 **Prachi Avhad**
 
